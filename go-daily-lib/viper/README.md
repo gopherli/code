@@ -1,0 +1,23 @@
+# viper
+
+- 下载库：go get github.com/spf13/viper
+- 学习toml语法:https://learnxinyminutes.com/docs/toml/
+- viper使用：
+    - 设置文件名（SetConfigName）
+    - 配置类型（SetConfigType）
+    - 搜索路径（AddConfigPath）
+    - 读取配置（ReadInConfig）
+    - 获取键值（Get、GetType）
+    - 设置键值（Set）（设置后再读取配置）
+    - 命令行选项 （viper.BindPFlags）（main方法开头处调用pflag.Parse解析选项）
+    - 环境变量 （AutomaticEnv）（BindEnv）（viper.SetEnvPrefix）
+    - 读取配置
+        - 顺序：设置-》命令行-》配置文件
+        - io.Reader
+            - io.Reader
+            - Unmarshal
+    - 保存配置
+        - 覆盖 WriteConfig、WriteConfigAs
+        - 不覆盖 SafeWriteConfig、SafeWriteConfig
+    - 监听文件修改 viper.WatchConfig
+        - 作用：热加载配置，因此不需要重启服务器，就能让配置生效。
